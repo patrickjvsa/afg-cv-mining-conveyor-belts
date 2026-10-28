@@ -1,0 +1,2 @@
+# Dependencia para validar y visualizar imágenes. No instala PyTorch ni CUDA.
+Pillow>=10
