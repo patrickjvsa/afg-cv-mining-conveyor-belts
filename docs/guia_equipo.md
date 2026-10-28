@@ -14,7 +14,7 @@ Si la carpeta aparece en «Compartido conmigo», añada un acceso directo a «Mi
 
 1. Entre en [Colab](https://colab.research.google.com/), seleccione **Archivo → Abrir notebook → GitHub** y busque la URL real del repositorio. Abra `notebooks/00_setup.ipynb`. También puede descargar el archivo y usar **Subir**.
 2. Conecte una sesión. CPU es suficiente para preparar y explorar datos; GPU es opcional y su disponibilidad puede variar.
-3. Complete la sección 1: URL, rama, raíz de Drive, ruta relativa del dataset y versión. La ruta del dataset es relativa a `raw`, no a la raíz compartida. Los demás valores pueden conservarse inicialmente.
+3. Revise la sección 1: URL pública y `main` ya están configuradas. Para hacer cambios, cree primero su rama en GitHub desde `main` y escriba su nombre en `branch`. Complete la raíz montada de Drive, ruta relativa del dataset y versión. La ruta del dataset es relativa a `raw`, no a la raíz compartida. Los demás valores pueden conservarse inicialmente.
 4. Ejecute las celdas en orden con ▶ y espere a que cada una termine. No continúe si falla una celda: lea el mensaje y corrija su causa.
 5. Autorice Drive mediante el diálogo oficial de Google. Nunca escriba contraseñas en celdas.
 6. Revise los archivos encontrados y el reporte de imágenes. `ok: true` significa que pasó la inspección general, no que se hayan validado las etiquetas ni todas las imágenes.
@@ -23,7 +23,9 @@ Si la carpeta aparece en «Compartido conmigo», añada un acceso directo a «Mi
 
 Toda la configuración está en la sección 1 del notebook, incluidos semilla, parámetros y versión de datos. No hay archivos YAML que editar. Conserve una copia personal del notebook configurado; no publique rutas personales innecesarias ni salidas privadas.
 
-### Repositorio privado
+El repositorio actual es público: deje `private_repo=False`. No necesita un token para clonar, pero sí permisos de colaborador para publicar cambios. Tener lectura pública de Drive no concede escritura de resultados.
+
+### Si en el futuro usa un repositorio privado
 
 La autorización para abrir un notebook desde GitHub no necesariamente autentica su clon. Para clonar un repositorio privado, cree un token de lectura limitado a ese repositorio y guárdelo en el panel **Secretos** de Colab con el nombre `GITHUB_TOKEN`. Autorice el acceso desde el notebook y active `private_repo` en la sección 1. Nunca pegue el token en código, URLs, archivos ni mensajes. El helper temporal no guarda el token en su contenido.
 

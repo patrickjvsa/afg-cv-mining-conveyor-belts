@@ -14,30 +14,20 @@ El proyecto aborda el riesgo que representan los objetos extraños que circulan 
 
 La propuesta surge de las dificultades de inspeccionar visualmente cintas en movimiento en un entorno industrial con polvo y variaciones en la apariencia de los materiales.
 
-## Estado actual del repositorio
-
-Está implementada la infraestructura de trabajo colaborativo: preparación del entorno, acceso a datos, validación general de archivos y registro reproducible de experimentos con GitHub, Google Drive y Google Colab. El repositorio permite asociar los resultados a una configuración, un commit de código y una versión del dataset.
-
-Quedan por definir e implementar la captura de imágenes reales, la generación de datos simulados, las clases y reglas de anotación, las particiones de evaluación y los modelos de detección. Los objetos mencionados arriba son ejemplos del problema, no una lista definitiva de clases. Los notebooks actuales preparan y exploran los datos y consultan resultados; todavía no entrenan un detector.
-
-La infraestructura utiliza herramientas gratuitas y no requiere servicios de pago. Los recursos gratuitos de Colab tienen disponibilidad variable.
-
 ## Comenzar a trabajar
 
-1. Obtenga del responsable la URL del repositorio, la rama, el acceso a Drive y la versión del dataset.
-2. Abra [00_setup.ipynb](notebooks/00_setup.ipynb) en [Google Colab](https://colab.research.google.com/) mediante **Archivo → Abrir notebook → GitHub**.
-3. Complete únicamente la sección 1 y ejecute las celdas en orden. El notebook prepara código, dependencias, Drive y datos.
-4. En la última sección encontrará cómo continuar con los pasos 01 y 02 en la misma sesión, sin repetir la configuración.
+1. Abra [00_setup.ipynb](notebooks/00_setup.ipynb) en [Google Colab](https://colab.research.google.com/) o localmente mediante **Archivo → Abrir notebook → GitHub**.
+2. Complete únicamente la sección 1 y ejecute las celdas en orden. El notebook prepara código, dependencias, Drive y datos.
+3. En la última sección encontrará cómo continuar con los pasos 01 y 02 en la misma sesión, sin repetir la configuración.
 
-La [guía del equipo](docs/guia_equipo.md) reúne las instrucciones de Drive, Colab, Git y solución de problemas. No necesita editar las utilidades de `src/` para comenzar.
+La [guía del equipo](docs/guia_equipo.md) reúne instrucciones de Drive, Colab, Git y solución de problemas.
 
 ## Notebooks por pasos
 
 | Paso | Qué hace |
 |---|---|
 | [00 · Preparar](notebooks/00_setup.ipynb) | Configurar el proyecto, montar Drive, validar datos y preparar las salidas. |
-| [01 · Explorar](notebooks/01_exploracion_datos.ipynb) | Inspeccionar archivos y visualizar una muestra de imágenes. |
-| [02 · Consultar resultados](notebooks/02_evaluacion.ipynb) | Leer registros de experimentos y revisar sus métricas cuando existan. |
+
 
 Abrir otro notebook en Colab puede asignar una máquina diferente. Para conservar la sesión, después del paso 00 añada una celda con `run_step("01_exploracion_datos.ipynb")`. Para consultar resultados use `run_step("02_evaluacion.ipynb")`. Los notebooks permanecen separados para leer y desarrollar cada etapa.
 
@@ -60,9 +50,7 @@ GitHub conserva código y documentación; Drive conserva datos y resultados; Col
 ├── data/
 │   └── README.md
 ├── notebooks/
-│   ├── 00_setup.ipynb
-│   ├── 01_exploracion_datos.ipynb
-│   └── 02_evaluacion.ipynb
+│   └── 00_setup.ipynb
 ├── src/
 │   └── cv_project/       Utilidades internas de los notebooks
 └── docs/
@@ -83,5 +71,3 @@ La configuración está en una celda de `00_setup.ipynb`: rutas, versión de dat
 ## Trabajo en equipo
 
 Cada integrante trabaja en su rama y solicita revisión antes de integrar cambios. Acuerden quién edita cada notebook, borren sus salidas antes de enviarlo y no suban datos, pesos ni credenciales. El flujo Git y los comandos están en la [guía del equipo](docs/guia_equipo.md).
-
-No se incluyen tests ni automatizaciones de CI en esta versión mínima. La guía contiene un checklist breve para verificar los cambios y las integraciones reales de Colab antes de experimentar.
