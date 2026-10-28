@@ -16,43 +16,38 @@ La propuesta surge de las dificultades de inspeccionar visualmente cintas en mov
 
 ## Comenzar a trabajar
 
-1. Abra [00_setup.ipynb](notebooks/00_setup.ipynb) en [Google Colab](https://colab.research.google.com/) o localmente mediante **Archivo → Abrir notebook → GitHub**.
+1. Abra [00_setup.ipynb](notebooks/00_setup.ipynb) en [Google Colab](https://colab.research.google.com/) mediante **Archivo → Abrir notebook → GitHub**.
 2. Complete únicamente la sección 1 y ejecute las celdas en orden. El notebook prepara código, dependencias, Drive y datos.
-3. En la última sección encontrará cómo continuar con los pasos 01 y 02 en la misma sesión, sin repetir la configuración.
+3. Al terminar, use `DATA_PATH` para comenzar a explorar los datos en esa sesión. Todavía no hay un flujo común de modelado o evaluación; cada integrante desarrolla su trabajo en su rama.
 
 La [guía del equipo](docs/guia_equipo.md) reúne instrucciones de Drive, Colab, Git y solución de problemas.
 
-## Notebooks por pasos
+## Notebook de preparación
 
-| Paso | Qué hace |
-|---|---|
-| [00 · Preparar](notebooks/00_setup.ipynb) | Configurar el proyecto, montar Drive, validar datos y preparar las salidas. |
+[00_setup.ipynb](notebooks/00_setup.ipynb) comprueba el entorno, clona el código, instala dependencias, monta Drive y valida los datos. Permite preparar una copia local opcional. Termina al dejar `DATA_PATH` disponible; no crea salidas ni guarda resultados.
 
-
-Abrir otro notebook en Colab puede asignar una máquina diferente. Para conservar la sesión, después del paso 00 añada una celda con `run_step("01_exploracion_datos.ipynb")`. Para consultar resultados use `run_step("02_evaluacion.ipynb")`. Los notebooks permanecen separados para leer y desarrollar cada etapa.
+Si abre otro notebook, Colab puede asignarle una máquina diferente. No presuponga que compartirá las variables o el disco de la sesión anterior.
 
 ## Dónde vive cada cosa
 
 ```mermaid
 flowchart LR
-  G[GitHub: código y notebooks] --> C[Colab: CPU o GPU temporal]
-  D[Drive: datos reales y simulados] --> C
-  C --> L[Copia local opcional en data]
-  C --> R[Drive: métricas, configuración y pesos elegidos]
+  G[GitHub: código y notebooks] --> C[Google Colab o local: desarrollo y procesamiento]
+  D[Google Drive: datasets] --> C
+  C --> R[Resultados: Drive o local, métricas, configuración y pesos]
 ```
 
-GitHub conserva código y documentación; Drive conserva datos y resultados; Colab ejecuta el código. Una desconexión puede borrar el disco de Colab: guarde los resultados importantes explícitamente en Drive y compruebe que llegaron.
+GitHub conserva código y documentación; Drive conserva los datos compartidos; Colab ejecuta el código. Una desconexión puede borrar su disco temporal. El setup utiliza Drive para lectura y no implementa guardado automático de resultados.
 
 ```text
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-├── data/
+├── data/                           # Datasets
 │   └── README.md
-├── notebooks/
+├── notebooks/                      # Notebooks
 │   └── 00_setup.ipynb
-├── src/
-│   └── cv_project/       Utilidades internas de los notebooks
+├── src/                            # Utilidades internas de los notebooks
 └── docs/
     └── guia_equipo.md
 ```
@@ -66,7 +61,7 @@ En su computador, coloque los datasets en `data/raw/`; vea [data/README.md](data
 
 En ambos casos el código utiliza `DATA_PATH`. Los datos quedan excluidos de Git.
 
-La configuración está en una celda de `00_setup.ipynb`: rutas, versión de datos, semilla y futuros hiperparámetros. No hay archivos YAML adicionales. Al registrar un experimento, las utilidades guardan su configuración, commit, versión de datos y métricas en Drive. Las copias y exportaciones rechazan sobrescrituras accidentales.
+La configuración está en una celda de `00_setup.ipynb`: repositorio, rama, rutas de datos y opciones de validación y copia. No hay archivos YAML adicionales ni es necesario definir parámetros de entrenamiento para explorar. La preparación local rechaza sobrescrituras accidentales.
 
 ## Trabajo en equipo
 

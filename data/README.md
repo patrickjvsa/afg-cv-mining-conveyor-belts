@@ -10,9 +10,9 @@ Para usar las utilidades en su computador, instale `requirements.txt` y ejecute 
 from pathlib import Path
 import sys
 ROOT = Path.cwd()
-sys.path.insert(0, str(ROOT / "src"))
-from cv_project.config import resolve_paths
-from cv_project.validation import validate_dataset
+sys.path.insert(0, str(ROOT))
+from src.config import resolve_paths
+from src.validation import validate_dataset
 
 MANIFEST = {
     "raw_dir": "raw", "processed_dir": "processed",
