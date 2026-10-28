@@ -4,23 +4,15 @@ Proyecto de graduación grupal de Computer Vision y deep learning orientado a de
 
 **Equipo:** Alfredo Vega, Cristian Medina, David Mamani y Patrick Vásquez.
 
+**Enlaces:**
+- [GitHub Repo: Código](https://github.com/patrickjvsa/afg-cv-mining-conveyor-belts)
+- [Google Drive: Datos](https://drive.google.com/drive/folders/1lgVshy1lKk4bA6js3ugstGjjZgHLDYEp?usp=sharing)
+
 ## Contexto del problema
 
 El proyecto aborda el riesgo que representan los objetos extraños que circulan junto al mineral hacia los equipos de procesamiento. Su presencia puede provocar daños en equipos, cortes de cinta y detenciones no programadas, afectando la continuidad operacional.
 
 La propuesta surge de las dificultades de inspeccionar visualmente cintas en movimiento en un entorno industrial con polvo y variaciones en la apariencia de los materiales.
-
-## Objetivo y enfoque
-
-El objetivo es implementar y evaluar un modelo que identifique objetos extraños o voluminosos en imágenes de cintas transportadoras. La estrategia contempla combinar imágenes reales con datos simulados para complementar la disponibilidad limitada de ejemplos etiquetados.
-
-El trabajo se organizará en torno a tres componentes:
-
-- **Datos:** definir cómo obtener imágenes reales, generar datos simulados y preparar las anotaciones necesarias, conservando la procedencia y versión de los datos utilizados.
-- **Modelado:** desarrollar experimentos de detección y estudiar el aporte de combinar datos reales y simulados.
-- **Evaluación:** medir el desempeño con precisión, recall y tasa de falsas alarmas, con un protocolo que el equipo deberá concretar antes de comparar resultados.
-
-El beneficio esperado es aportar a la prevención de daños y detenciones mediante la detección visual. Su impacto operacional deberá validarse; este repositorio todavía no representa un sistema desplegado en planta.
 
 ## Estado actual del repositorio
 
